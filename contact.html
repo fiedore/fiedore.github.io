@@ -27,10 +27,9 @@
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li><a href="./index.html" id="top-link" class="active"><span class="icon solid fa-home">Intro</span></a></li>
+								<li><a href="./index.html" id="top-link"><span class="icon solid fa-home">Intro</span></a></li>
 								<li><a href="./venues.html" id="venues-link"><span class="icon solid fa-th">Venues</span></a></li>
-								<!-- <li><a href="#about" id="about-link"><span class="icon solid fa-user">About Me</span></a></li> -->
-								<li><a href="./contact.html" id="contact-link"><span class="icon solid fa-envelope">Contact</span></a></li>
+								<li><a href="./contact.html" id="contact-link" class="active"><span class="icon solid fa-envelope">Contact</span></a></li>
 							</ul>
 						</nav>
 
@@ -50,23 +49,39 @@
 		<!-- Main -->
 			<div id="main">
 
-				<!-- Intro -->
-					<section id="top" class="one dark cover">
-						<div class="container fade-in">
+				<!-- Contact -->
+					<section id="contact" class="four">
+						<div class="container">
 
 							<header>
-								<h2 class="alt">Broski Security</h2>
-								<img id="team" src="images/broski_team.jpg" alt="Broski Security Team" />
-								<p>Welcome to Broski Security - dependable personnel to ensure safety at your venue.</p>
+								<h2>Contact</h2>
 							</header>
 
-							<footer>
-								<a href="./venues.html" class="button scrolly">Venues</a>
-							</footer>
+							<div id="contact-info"></div>
+							<div id="contact-form"></div>
+							<script>
+							document.addEventListener("DOMContentLoaded", function() {
+							    var phone = "+447377186952";
+							    var html = 'You can book personnel with us using the form below or by phone <a href="tel:' + phone + '">' + phone + '</a>.';
+							    document.getElementById("contact-info").innerHTML = "<p>" + html + "</p>";
+
+							    // FormSubmit form generation
+							    var email = "info" + "@" + "broskisecurity.com";
+							    var form = document.createElement("form");
+							    form.action = "https://formsubmit.co/" + email;
+							    form.method = "POST";
+							    form.innerHTML = `
+							        <input type="text" name="name" placeholder="Name" required>
+							        <input type="email" name="email" placeholder="Your Email" required>
+							        <textarea name="message" placeholder="Message" required></textarea>
+							        <button type="submit">Send</button>
+							    `;
+							    document.getElementById("contact-form").appendChild(form);
+							});
+							</script>
 
 						</div>
 					</section>
-
 
 			</div>
 
